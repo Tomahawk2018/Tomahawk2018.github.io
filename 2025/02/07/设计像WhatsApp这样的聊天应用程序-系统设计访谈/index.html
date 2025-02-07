@@ -4,13 +4,13 @@
   <meta charset="utf-8">
   
   
-  <title>设计像WhatsApp这样的聊天应用程序-系统设计访谈 | 武仙的技术专栏</title>
+  <title>设计像WhatsApp这样的聊天应用程序-系统设计访谈 | 武仙-北冕座长城的技术专栏</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="🔗 原文链接： https:&#x2F;&#x2F;blog.algomaster.io&#x2F;p&#x2F;design...  几乎每个人都使用聊天应用程序来发送消息和保持联系。 拥有超过25亿 活跃用户，每天交换超过1000亿条消息，WhatsApp是世界上最受欢迎的消息应用程序。 但是建立这样一个可以实时连接全球数十亿人的平台需要什么？ 在本文中，我们将深入探讨构建这种可扩展 聊天应用程序的高级设计。   **多人游戏*">
 <meta property="og:type" content="article">
 <meta property="og:title" content="设计像WhatsApp这样的聊天应用程序-系统设计访谈">
 <meta property="og:url" content="http://tomahawk2018.github.io/2025/02/07/%E8%AE%BE%E8%AE%A1%E5%83%8FWhatsApp%E8%BF%99%E6%A0%B7%E7%9A%84%E8%81%8A%E5%A4%A9%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F-%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1%E8%AE%BF%E8%B0%88/index.html">
-<meta property="og:site_name" content="武仙的技术专栏">
+<meta property="og:site_name" content="武仙-北冕座长城的技术专栏">
 <meta property="og:description" content="🔗 原文链接： https:&#x2F;&#x2F;blog.algomaster.io&#x2F;p&#x2F;design...  几乎每个人都使用聊天应用程序来发送消息和保持联系。 拥有超过25亿 活跃用户，每天交换超过1000亿条消息，WhatsApp是世界上最受欢迎的消息应用程序。 但是建立这样一个可以实时连接全球数十亿人的平台需要什么？ 在本文中，我们将深入探讨构建这种可扩展 聊天应用程序的高级设计。   **多人游戏*">
 <meta property="og:locale">
 <meta property="og:image" content="https://iq7yw19tqs.feishu.cn/space/api/box/stream/download/asynccode/?code=ODRiZDQ0NDBjMzU1OWZjMTY3YWVmZTAzZGQ4ZDM1MmZfbHlCMWJjWnZEbTV1Q0h2U29MTnBsbEZ1Ukloc0pNYUNfVG9rZW46SEhwa2J2R21pb0k0NEp4V2lSNWNRWUtBbnFiXzE3Mzg5MTc2Nzk6MTczODkyMTI3OV9WNA">
@@ -23,7 +23,7 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://iq7yw19tqs.feishu.cn/space/api/box/stream/download/asynccode/?code=ODRiZDQ0NDBjMzU1OWZjMTY3YWVmZTAzZGQ4ZDM1MmZfbHlCMWJjWnZEbTV1Q0h2U29MTnBsbEZ1Ukloc0pNYUNfVG9rZW46SEhwa2J2R21pb0k0NEp4V2lSNWNRWUtBbnFiXzE3Mzg5MTc2Nzk6MTczODkyMTI3OV9WNA">
   
-    <link rel="alternate" href="/atom.xml" title="武仙的技术专栏" type="application/atom+xml">
+    <link rel="alternate" href="/atom.xml" title="武仙-北冕座长城的技术专栏" type="application/atom+xml">
   
   
     <link rel="shortcut icon" href="/favicon.png">
@@ -48,7 +48,7 @@
   <div id="header-outer" class="outer">
     <div id="header-title" class="inner">
       <h1 id="logo-wrap">
-        <a href="/" id="logo">武仙的技术专栏</a>
+        <a href="/" id="logo">武仙-北冕座长城的技术专栏</a>
       </h1>
       
         <h2 id="subtitle-wrap">
