@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>设计像WhatsApp这样的聊天应用程序-系统设计访谈 | 武仙的技术专栏</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="🔗 原文链接： https:&#x2F;&#x2F;blog.algomaster.io&#x2F;p&#x2F;design...  几乎每个人都使用聊天应用程序来发送消息和保持联系。 拥有超过25亿 活跃用户，每天交换超过1000亿条消息，WhatsApp是世界上最受欢迎的消息应用程序。 但是建立这样一个可以实时连接全球数十亿人的平台需要什么？ 在本文中，我们将深入探讨构建这种可扩展 聊天应用程序的高级设计。   **多人游戏*">
+<meta property="og:type" content="article">
+<meta property="og:title" content="设计像WhatsApp这样的聊天应用程序-系统设计访谈">
+<meta property="og:url" content="http://tomahawk2018.github.io/2025/02/07/%E8%AE%BE%E8%AE%A1%E5%83%8FWhatsApp%E8%BF%99%E6%A0%B7%E7%9A%84%E8%81%8A%E5%A4%A9%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F-%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1%E8%AE%BF%E8%B0%88/index.html">
+<meta property="og:site_name" content="武仙的技术专栏">
+<meta property="og:description" content="🔗 原文链接： https:&#x2F;&#x2F;blog.algomaster.io&#x2F;p&#x2F;design...  几乎每个人都使用聊天应用程序来发送消息和保持联系。 拥有超过25亿 活跃用户，每天交换超过1000亿条消息，WhatsApp是世界上最受欢迎的消息应用程序。 但是建立这样一个可以实时连接全球数十亿人的平台需要什么？ 在本文中，我们将深入探讨构建这种可扩展 聊天应用程序的高级设计。   **多人游戏*">
+<meta property="og:locale">
+<meta property="og:image" content="https://iq7yw19tqs.feishu.cn/space/api/box/stream/download/asynccode/?code=ODRiZDQ0NDBjMzU1OWZjMTY3YWVmZTAzZGQ4ZDM1MmZfbHlCMWJjWnZEbTV1Q0h2U29MTnBsbEZ1Ukloc0pNYUNfVG9rZW46SEhwa2J2R21pb0k0NEp4V2lSNWNRWUtBbnFiXzE3Mzg5MTc2Nzk6MTczODkyMTI3OV9WNA">
+<meta property="og:image" content="https://iq7yw19tqs.feishu.cn/space/api/box/stream/download/asynccode/?code=ZTljNDFhN2E3ZmRjYTY0Y2Y3YWNhOTZhODIwMGYzOGRfQnJSTXBVNTdlOHY0RXJ1WTZHaVJXd2R5c2h5QzZGb3NfVG9rZW46UllzM2J5VEFTb3VvN1F4dGNEMGNuUURobk5lXzE3Mzg5MTc2Nzk6MTczODkyMTI3OV9WNA">
+<meta property="og:image" content="https://iq7yw19tqs.feishu.cn/space/api/box/stream/download/asynccode/?code=ZGIyYjU3MDk3NTQ3MDMwY2MzYWRkNzcwZWFlMzQ3M2ZfRnZZTHFCclhzOUo3VFVkbU92OHpKSURWOEtDT0lwSHZfVG9rZW46SVpJN2JEbnNub1pWYUh4aTdhSWNrMWtpbndnXzE3Mzg5MTc2Nzk6MTczODkyMTI3OV9WNA">
+<meta property="article:published_time" content="2025-02-07T08:40:48.000Z">
+<meta property="article:modified_time" content="2025-02-07T08:42:34.373Z">
+<meta property="article:author" content="武仙北冕座长城">
+<meta property="article:tag" content="技术">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://iq7yw19tqs.feishu.cn/space/api/box/stream/download/asynccode/?code=ODRiZDQ0NDBjMzU1OWZjMTY3YWVmZTAzZGQ4ZDM1MmZfbHlCMWJjWnZEbTV1Q0h2U29MTnBsbEZ1Ukloc0pNYUNfVG9rZW46SEhwa2J2R21pb0k0NEp4V2lSNWNRWUtBbnFiXzE3Mzg5MTc2Nzk6MTczODkyMTI3OV9WNA">
+  
+    <link rel="alternate" href="/atom.xml" title="武仙的技术专栏" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">武仙的技术专栏</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">行到水穷处，坐看云起时</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Suche"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Suche"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://Tomahawk2018.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-设计像WhatsApp这样的聊天应用程序-系统设计访谈" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2025/02/07/%E8%AE%BE%E8%AE%A1%E5%83%8FWhatsApp%E8%BF%99%E6%A0%B7%E7%9A%84%E8%81%8A%E5%A4%A9%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F-%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1%E8%AE%BF%E8%B0%88/" class="article-date">
+  <time class="dt-published" datetime="2025-02-07T08:40:48.000Z" itemprop="datePublished">2025-02-07</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E8%B5%84%E6%96%99%E5%BA%93/">资料库</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      设计像WhatsApp这样的聊天应用程序-系统设计访谈
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>🔗 原文链接： <a target="_blank" rel="noopener" href="https://blog.algomaster.io/p/design-a-chat-application-like-whatsapp">https://blog.algomaster.io/p/design...</a></p>
+</blockquote>
+<p>几乎每个人都使用<strong>聊天应用程序</strong>来发送消息和保持联系。</p>
+<p>拥有超过<strong>25亿</strong> <strong>活跃用户</strong>，每天交换超过<strong>1000亿条消息</strong>，<strong>WhatsApp</strong>是世界上最受欢迎的消息应用程序。</p>
+<p>但是建立这样一个可以实时连接全球数十亿人的平台需要什么？</p>
+<p>在本文中，我们将深入探讨构建这种<strong>可扩展</strong> <strong>聊天应用程序</strong>的高级设计。</p>
+<img src="https://iq7yw19tqs.feishu.cn/space/api/box/stream/download/asynccode/?code=ODRiZDQ0NDBjMzU1OWZjMTY3YWVmZTAzZGQ4ZDM1MmZfbHlCMWJjWnZEbTV1Q0h2U29MTnBsbEZ1Ukloc0pNYUNfVG9rZW46SEhwa2J2R21pb0k0NEp4V2lSNWNRWUtBbnFiXzE3Mzg5MTc2Nzk6MTczODkyMTI3OV9WNA" alt="img" style="zoom:25%;" />
+
+<p>**<a target="_blank" rel="noopener" href="https://dub.sh/ZQz2PMk">多人游戏</a>**自动记录您的系统，从高级逻辑架构到各个组件、API、依赖项和环境。非常适合希望加快工作流程和整合技术资产的团队。</p>
+<p><a target="_blank" rel="noopener" href="https://dub.sh/ZQz2PMk">开始使用</a></p>
+<ul>
+<li>支持<strong>用户之间1:1</strong> <strong>的实时消息传递</strong>。</li>
+<li>显示用户的<strong>在线&#x2F;离线</strong>状态和<strong>上次看到时间</strong>。</li>
+<li>显示<strong>消息送达状态</strong>（已发送、送达、已读）</li>
+<li>允许用户共享<strong>图像</strong>、<strong>视频</strong>和<strong>音频剪辑</strong>。</li>
+<li>支持最多100名成员的<strong>群组对话</strong>。</li>
+<li>如果接收者离线，则为新消息发送<strong>推送通知</strong>。</li>
+<li><strong>存储</strong>和<strong>检索</strong>每个用户的聊天记录。</li>
+<li><strong>可扩展性</strong>：处理数百万并发用户。</li>
+<li><strong>高可用性</strong>：确保最小的停机时间和对服务器故障的弹性。</li>
+<li><strong>低延迟</strong>：以最小延迟实时传递消息。</li>
+<li><strong>可靠性</strong>：确保消息不会丢失。</li>
+</ul>
+<p>让我们假设我们的聊天应用程序具有以下流量特征：</p>
+<blockquote>
+<p><strong>总用户</strong>：假设10亿注册用户。</p>
+</blockquote>
+<blockquote>
+<p><strong>每日活跃用户（日活用户）</strong>：每天约有5亿用户积极使用该应用程序。</p>
+</blockquote>
+<blockquote>
+<p><strong>峰值并发连接</strong>：大约5000万用户在高峰时间连接。</p>
+</blockquote>
+<p><strong>平均每天消息数</strong>：如果每个活跃用户平均每天发送10条消息，则每天会产生50亿条消息。</p>
+<p>假设每条消息大约是1KB。</p>
+<ul>
+<li><strong>每日存储</strong>：1KB×50亿消息&#x3D;5TB</li>
+<li><strong>年存储</strong>：365×5TB≤1.8PB（PB）</li>
+</ul>
+<p>1000万用户在高峰期同时连接。</p>
+<ul>
+<li><strong>每个连接的平均带宽</strong>：假设每个连接平均10KB&#x2F;s，我们总共需要100 GB&#x2F;s的带宽来支持高峰使用时的实时消息传递。</li>
+</ul>
+<p>这些<strong>聊天服务器</strong>管理大量的并发连接，促进实时通信，并确保以最小的延迟在用户之间有效地传递消息。</p>
+<p>为了支持无缝的双向消息传递，像**<a target="_blank" rel="noopener" href="https://blog.algomaster.io/p/websockets">WebSockets</a>**这样的协议——为客户端和服务器之间的本地双向通信而设计——是理想的。（我们稍后会更详细地研究这个问题。）</p>
+<p>该<strong>负载均衡器</strong>可在聊天服务器和面向用户的服务（如媒体服务）的多个实例之间有效地分配来自用户的传入流量。</p>
+<p>以下是通过负载均衡器在用户和聊天服务器之间建立连接的方式：</p>
+<ul>
+<li><strong>初始连接</strong>：客户端发起一个HTTP（S）请求来建立WebSocket连接。该请求通过负载均衡器，负载均衡器根据用户位置和使用的负载均衡算法（例如循环、最少连接）等因素将其路由到适当的聊天服务器。</li>
+<li><strong>连接升级</strong>：一旦请求到达选定的服务器，连接将从HTTP升级到WebSocket，通过负载均衡器在客户端和选定的聊天服务器之间建立持久的双向WebSocket链接。</li>
+<li><strong>会话持久性</strong>：为了确保客户端保持连接到同一聊天服务器，负载均衡器使用<strong>粘性</strong>会话。这可以通过<strong>IP散列</strong>来实现，其中负载均衡器根据用户IP地址的散列一致地将用户路由到同一服务器。</li>
+</ul>
+<p>另一种方法是使用服务发现，它使用户能够直接连接到聊天服务器。</p>
+<p>在这种情况下，用户首先连接到服务发现层以识别他们应该连接到的聊天服务器，然后直接与该服务器建立WebSocket连接。</p>
+<p>“<strong>用户连接缓存</strong>”是一个快速的内存缓存（例如Redis），用于存储每个用户的活动连接详细信息，例如他们连接到的聊天服务器和他们的<code>last_active</code>时间戳。</p>
+<p><img src="https://iq7yw19tqs.feishu.cn/space/api/box/stream/download/asynccode/?code=ZTljNDFhN2E3ZmRjYTY0Y2Y3YWNhOTZhODIwMGYzOGRfQnJSTXBVNTdlOHY0RXJ1WTZHaVJXd2R5c2h5QzZGb3NfVG9rZW46UllzM2J5VEFTb3VvN1F4dGNEMGNuUURobk5lXzE3Mzg5MTc2Nzk6MTczODkyMTI3OV9WNA" alt="img"></p>
+<p>客户端定期向其连接的服务器发送心跳信号，每次心跳都会更新缓存中用户的<code>last_active</code>时间戳。</p>
+<p>此设置可有效支持<code>在线/离线</code>状态和<code>上次看到</code>的功能。</p>
+<p>如果当前时间与时间戳之间的差异<code>last_active</code>在定义的阈值（例如3秒）内，则用户显示为在线；否则，他们被标记为离线。</p>
+<p> **<a target="_blank" rel="noopener" href="https://blog.algomaster.io/p/design-a-scalable-notification-service">通知服务 </a>**负责 向用户发送实时通知，尤其是当用户离线或未主动使用应用程序时。</p>
+<p>当用户离线时，聊天服务器会将消息转发给通知服务。</p>
+<p>为了提高效率，聊天服务器可以将该消息发送到消息队列，而不是直接与通知服务交互并等待响应。</p>
+<p>通知服务与外部推送通知提供商（如<strong>Firebase云消息（FCM）<strong>和</strong>Apple推送通知服务（APNS））集成</strong>，以推送通知的形式向离线用户传递消息。</p>
+<p>消息**<a target="_blank" rel="noopener" href="https://blog.algomaster.io/p/message-queues">队列</a>**是一个分布式的、高吞吐量的队列（例如Kafka、RabbitMQ）。</p>
+<p>通过充当中介，消息队列将消息存储与聊天服务器上的实时消息处理分离，从而减少延迟并增强应用程序的可扩展性。</p>
+<p> <strong>消息存储服务</strong> 负责 聊天消息的可靠存储、快速检索和高效归档。</p>
+<p>它使用来自 <strong>消息队列的传入消息</strong> 并将其保存在 <strong>消息数据库中，</strong> 以实现高效的存储和检索。</p>
+<p> <strong>消息数据库</strong> 以 可靠、高效的方式存储所有聊天消息，确保用户可以访问过去的消息。</p>
+<p>该数据库旨在实现<strong>高写入</strong>吞吐量和高效检索（例如<strong>Cassandra</strong>），以处理实时聊天应用程序中的大量消息。</p>
+<p>群组 <strong>服务</strong> 负责处理所有与群组相关的功能，包括创建群组、更新群组详细信息和管理群组成员资格。</p>
+<p>当需要将消息传递给群组对话时，聊天服务器会查询群组服务以检索当前群组成员列表。</p>
+<p>群组<strong>数据库</strong>存储和检索与群聊相关的所有数据，包括群组ID、成员列表、管理员角色和群组设置。</p>
+<p>媒体 <strong>服务</strong> 负责处理多媒体内容（例如图像、视频和音频文件）的上传和管理。</p>
+<p>它将媒体文件安全地存储在 Blob 存储系统中，同时将元数据（例如文件类型、大小和上传时间戳）保存在单独的数据库中，以便于访问和组织。</p>
+<p>通过从主聊天服务器卸载媒体存储，媒体服务可以减少聊天服务器上的带宽使用量并提高整体应用程序性能。</p>
+<p>Blob<strong>Store</strong>是聊天应用程序多媒体内容的存储后端，包括图像、视频、音频文件和文档。</p>
+<p>它旨在处理大量媒体内容，同时确保快速、安全和可靠的访问。</p>
+<p>媒体商店通常利用基于云的对象存储解决方案（例如Amazon S3、Google Cloud Storage或Azure Blob Storage），提供高耐用性、可扩展性和成本效益。</p>
+<p> **为了减少上传或下载多媒体内容时的延迟，文件通过内容分发网络（CDN）**分发到地理位置更靠近用户的位置。</p>
+<p>当用户共享多媒体文件时，客户端应用程序会将其直接上传到 CDN，并将其存储在靠近收件人的位置。</p>
+<p>客户端并不发送文件本身，而是将文件的URL作为消息的一部分发送到聊天服务器，从而允许其他用户从最近的CDN位置快速高效地下载和访问内容。</p>
+<p>一旦文件上传到CDN，媒体服务就会检索它们并将其存储在Blob存储中以供长期存储。</p>
+<p>这种方法减少了聊天服务器的负载，最大限度地减少了延迟，并显著提高了用户的媒体传输速度。</p>
+<p><a target="_blank" rel="noopener" href="https://blog.algomaster.io/p/design-a-chat-application-like-whatsapp?utm_source=substack&utm_medium=email&utm_content=share&action=share&token=eyJ1c2VyX2lkIjozMTIyMDM5NTksInBvc3RfaWQiOjE0NzU0ODUwMiwiaWF0IjoxNzM3NjIwNDQ2LCJleHAiOjE3NDAyMTI0NDYsImlzcyI6InB1Yi0yMjAyMjY4Iiwic3ViIjoicG9zdC1yZWFjdGlvbiJ9.NtYkYOZCJlIVDvora4oa4KKS3yDf55aFMUfcnNFQmj0">分享</a></p>
+<p>对于聊天应用程序，数据库需要处理 <strong>用户</strong> 、 <strong>消息</strong> 和 <strong>群组等核心实体</strong> 。</p>
+<p>以下是可以支持可扩展且高效的聊天应用程序的数据库设计的细目。</p>
+<p><img src="https://iq7yw19tqs.feishu.cn/space/api/box/stream/download/asynccode/?code=ZGIyYjU3MDk3NTQ3MDMwY2MzYWRkNzcwZWFlMzQ3M2ZfRnZZTHFCclhzOUo3VFVkbU92OHpKSURWOEtDT0lwSHZfVG9rZW46SVpJN2JEbnNub1pWYUh4aTdhSWNrMWtpbndnXzE3Mzg5MTc2Nzk6MTczODkyMTI3OV9WNA" alt="img"></p>
+<p>为了存储用户、群组和对话数据，我们可以使用PostgreSQL之类的SQL数据库。</p>
+<p>对于消息数据，由于写入吞吐量高，最好使用像Cassandra这样的非关系型数据库数据库。</p>
+<p>对于媒体文件，像AWSS3这样的对象存储提供了可扩展且安全的存储。</p>
+<p>为了理解为什么 WebSocket 是实时消息传递的理想选择，让我们来研究一下其他潜在的解决方案及其局限性：</p>
+<p>在轮询中，客户端定期向服务器发送 HTTP 请求以检查是否有新消息。</p>
+<p><strong>缺点</strong> ：轮询会占用大量资源，尤其是在轮询频率较高的情况下。由于服务器大多数时候都会回复“没有新消息”，因此这种方法会增加大量开销并浪费服务器资源。</p>
+<p>在长轮询中，客户端会保持与服务器的开放连接，直到有新消息可用或发生超时。当服务器有新数据时，它会做出响应，而客户端会立即重新建立连接，从而重新启动该过程。</p>
+<p>虽然这减少了标准轮询中重复请求的需要，但长轮询有几个限制：</p>
+<ul>
+<li><strong>连接开销</strong> ：每次消息交换都需要重新建立连接，这会产生很大的开销并给服务器和网络资源带来沉重的负担。</li>
+<li><strong>资源消耗</strong> ：服务器必须维持许多开放的连接，即使没有主动的数据交换也会消耗内存和容量。</li>
+<li><strong>延迟问题</strong> ：如果超时时间较长，消息可能会延迟。如果超时时间较短，频繁重置会增加与标准轮询相同的开销。</li>
+</ul>
+<p>总体而言，长轮询的连接和资源需求使其不太适合实时聊天应用程序。</p>
+<p>另一方面，WebSocket消除了重复的HTTP握手、标头和响应的需要，从而减少了开销并提高了性能。</p>
+<p>客户端和服务器建立一次连接，并且该连接在整个聊天会话期间保持打开，从而实现无缝数据传输。</p>
+<p>这种持久连接使 WebSocket 成为实时通信的理想选择，客户端和服务器都需要频繁、及时地交换数据。</p>
+<p>当用户打开聊天应用程序时，它会与其中一个聊天服务器发起WebSocket连接，从而实现客户端和服务器之间的实时通信，而无需重复HTTP请求。</p>
+<p>一旦连接，当用户A向用户B发送消息时，该消息将通过用户A的WebSocket连接到管理该连接的服务器A。</p>
+<p>然后，服务器A查找**用户连接缓存，**以确定用户B是否在线，如果在线，则确定哪个服务器当先拥护有用户B的连接。</p>
+<ul>
+<li><strong>如果用户B在线</strong>：服务器A将消息转发到服务器B，服务器B通过其打开的WebSocket连接将消息传递给用户B。</li>
+<li><strong>如果用户B离线</strong>：服务器A将消息发送到<strong>通知服务</strong>，通知服务触发推送通知，通知用户B有新消息。</li>
+</ul>
+<p>WebSockets 支持消息的实时状态更新（例如“消息已发送”、“消息已送达”、“消息已读”），为用户提供消息状态的即时反馈。</p>
+<p>当用户A发送消息时，该消息会通过其WebSocket连接传输到处理其连接的服务器（服务器A）。</p>
+<ol>
+<li>服务器A收到消息，将其推送到消息队列进行存储，并向用户A发回确认。</li>
+<li>收到此确认后，用户 A 的应用程序将消息状态更新为“已发送”。</li>
+</ol>
+<p>如果用户A在尝试发送消息时处于离线状态，则消息将不会发送，直到他们重新上线.消息在用户A的设备上保持待处理状态，直到重新连接并成功将消息发送到服务器A。</p>
+<p>一旦用户B收到消息，它就会向服务器B发送确认。</p>
+<ul>
+<li>服务器B向服务器A发送交付确认。</li>
+<li>服务器A将消息状态“已交付”发送到消息队列以进行永久存储，然后将此更新中继到用户A的应用程序，该应用程序将消息反映为“已交付”。</li>
+</ul>
+<p>如果用户B离线，服务器A将不会收到来自服务器B的传递确认，因此消息对用户A保持“已发送”状态，直到用户B重新连接。</p>
+<p>当用户B上线时，客户端应用程序将更新发送到服务器B，此时它向服务器A发送“已交付”确认。然后更新用户A的应用程序以反映“已交付”状态。</p>
+<p>当用户B打开聊天窗口并查看消息时，他们的应用程序会向服务器B发送“已读”确认。</p>
+<ol>
+<li><strong>服务器B</strong>在消息队列中记录此事件，并将“读取”状态转发给服务器A。</li>
+<li><strong>服务器A</strong>将此更新推送到用户A的设备，允许用户A的应用将消息显示为“已读”</li>
+</ol>
+<p>如果用户B离线，他们无法查看消息，因此不会触发“已读”状态。当用户B重新连接并打开聊天时，他们的应用程序将向服务器B发送“已读”确认。</p>
+<p>服务器B在消息队列中记录“已读”状态并将其转发给服务器A。然后，用户A的应用程序接收此更新，将消息标记为“已读”。</p>
+<ol>
+<li>当用户A在群聊中发送消息时，消息通过用户A的WebSocket连接传输到管理该连接的服务器（服务器A）。</li>
+<li><strong>服务器A</strong>查询<strong>组服务</strong>以检索组中所有活动成员的列表。</li>
+<li><strong>服务器A</strong>检查<strong>用户连接缓存</strong>以确定哪些组成员当前在线以及它们连接到的特定服务器。</li>
+<li><strong>对于每个在线会员</strong>：<ol>
+<li>如果一个成员连接到<strong>服务器A</strong>，它将直接通过现有的WebSocket连接传递消息。</li>
+<li>如果成员连接到不同的服务器（例如，<strong>服务器B</strong>），<strong>服务器A</strong>将消息转发到<strong>服务器B</strong>，然后通过他们的WebSocket连接将消息传递给用户。</li>
+</ol>
+</li>
+<li>对于脱机组成员，<strong>服务器A</strong>将消息发送到<strong>通知服务</strong>。通知服务为每个脱机组成员触发推送通知，提醒他们新消息。</li>
+</ol>
+<p>在群聊中，发送的每条消息都必须分发给（或“分发给”）每个群成员。</p>
+<p>随着组规模的增加，扇出工作负载也会增加。例如，在一个由500名成员组成的组中，每条消息都需要500个单独的消息传递，这可能会很快使服务器不堪重负。</p>
+<p>这就是为什么大多数聊天应用程序都限制了一个群组可以拥有的成员数量（WhatsApp目前有1024个）。</p>
+<p>为了确保所有组成员都可以访问消息历史记录，<strong>服务器A</strong>将消息推送到<strong>消息队列</strong>进行存储。</p>
+<p>消息<strong>存储服务</strong>使用队列中的消息并将其存储在<strong>消息DB</strong>中，供组成员稍后检索。</p>
+<ul>
+<li>当每个联机组成员收到消息时，他们各自的服务器向<strong>服务器A</strong>发送传递确认（或者如果需要，直接更新<strong>消息DB</strong>中的状态）。</li>
+<li>一旦用户打开并查看消息，已读确认类似地传播回<strong>服务器A</strong>并存储以供将来参考，允许用户A查看哪些组成员已收到并已读消息。</li>
+</ul>
+<p>为了有效地检索最近的消息，我们可以使用<strong>基于时间的消息ID。</strong></p>
+<p>基于时间的消息ID通常将时间戳与每个消息的唯一标识符相结合。</p>
+<p>这允许我们按时间戳对消息进行排序，检索特定时间范围内的消息，并支持分页（“加载更多”），您可以在特定时间戳之前或之后检索消息，而无需重新排序数据集。</p>
+<p>一种常见的格式可能包括：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[Timestamp in milliseconds][Unique Sequence/Random Component]</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>时间戳（以毫秒为单位）</strong>：ID的第一部分是创建消息的时间戳。这允许消息按创建时间按时间顺序排序。</li>
+<li><strong>唯一序列或随机化组件</strong>：附加唯一组件（如随机或增量序列）可确保每个消息ID都是唯一的，即使在同一毫秒内发送多个消息也是如此。</li>
+</ul>
+<p>例如，在<code>2024-11-0512:34:56.789</code>发送的序列为<code>001</code>的消息可能具有ID：<code>20241105123456789001</code>。</p>
+<p>如天服务器发生故障，连接到该服务器的所有客户端都将失去连接。</p>
+<p>为了恢复，客户端会自动尝试重新连接，这一次与不同的可用服务器建立新连接。</p>
+<p>负载均衡器通过定期健康检查持续监控每个聊天服务器的健康状况。</p>
+<p>如果服务器出现故障，负载均衡器会立即停止向其引导流量，确保新连接仅路由到健康的服务器。</p>
+<p>为了支持水平扩容和高效的数据访问，我们可以跨不同的数据类型实现分片：</p>
+<ol>
+<li><strong>用户数据分片</strong>：基于<code>user_id</code>对用户数据进行分片。这将允许我们将用户记录分布在多个服务器上，并使我们能够随着用户群的增长而扩展。</li>
+<li><strong>消息数据分区</strong>：基于<code>message_id</code>对消息进行分区，使用基于时间戳的<code>message_id</code>来实现高效的基于时间的搜索。这种结构允许快速访问最近的消息，并根据时间戳定位较旧的消息。</li>
+</ol>
+<p>对于大量消息和多媒体内容，优化存储成本至关重要。</p>
+<p>这里有一些有效的策略：</p>
+<ol>
+<li><strong>压缩多媒体文件</strong>：压缩大文件（例如，图像，视频）可以减少存储需求并显着降低成本。</li>
+<li><strong>存档旧消息</strong>：大多数用户只访问最近的消息，这些消息可以本地缓存在他们的设备上。旧消息可以移动到成本更低的冷存储（例如，Amazon Glacier），减少费用，同时仍然允许访问（如果需要）。</li>
+<li><strong>去重文件</strong>：通过实现消重来避免存储相同文件的多个副本，当同一媒体在多个用户或组之间共享时，可以节省大量空间。</li>
+<li><strong>高效元数据存储</strong>：将元数据（例如，文件类型、大小、时间戳）与媒体本身分开存储，以减少主存储的负载，并使搜索更快、更高效。</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://tomahawk2018.github.io/2025/02/07/%E8%AE%BE%E8%AE%A1%E5%83%8FWhatsApp%E8%BF%99%E6%A0%B7%E7%9A%84%E8%81%8A%E5%A4%A9%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F-%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1%E8%AE%BF%E8%B0%88/" data-id="cm6uj3e0k00049gvuhbe7axhe" data-title="设计像WhatsApp这样的聊天应用程序-系统设计访谈" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%8A%80%E6%9C%AF/" rel="tag">技术</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2025/02/07/%E4%B8%BB%E9%A1%B5-%E5%AD%90%E5%A0%86%E6%A0%88/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Neuer</strong>
+      <div class="article-nav-title">
+        
+          主页|子堆栈
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2025/02/07/%E7%94%A8%E4%BB%A3%E7%A0%81%E8%A7%A3%E9%87%8A%E5%9F%BA%E6%9C%ACOOP%E6%A6%82%E5%BF%B5/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Älter</strong>
+      <div class="article-nav-title">用代码解释基本OOP概念</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Kategorien</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%AC%A2%E8%BF%8E/">欢迎</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%B5%84%E6%96%99%E5%BA%93/">资料库</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8A%80%E6%9C%AF/" rel="tag">技术</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%94%B6%E9%9B%86/" rel="tag">收集</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%AC%A2%E8%BF%8E/" rel="tag">欢迎</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/%E6%8A%80%E6%9C%AF/" style="font-size: 20px;">技术</a> <a href="/tags/%E6%94%B6%E9%9B%86/" style="font-size: 10px;">收集</a> <a href="/tags/%E6%AC%A2%E8%BF%8E/" style="font-size: 10px;">欢迎</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archiv</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/02/">February 2025</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">letzter Beitrag</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2025/02/07/%E6%AC%A2%E8%BF%8E%E6%96%87%E7%AB%A0/">欢迎文章</a>
+          </li>
+        
+          <li>
+            <a href="/2025/02/07/%E4%B8%BB%E9%A1%B5-%E5%AD%90%E5%A0%86%E6%A0%88/">主页|子堆栈</a>
+          </li>
+        
+          <li>
+            <a href="/2025/02/07/%E8%AE%BE%E8%AE%A1%E5%83%8FWhatsApp%E8%BF%99%E6%A0%B7%E7%9A%84%E8%81%8A%E5%A4%A9%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F-%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1%E8%AE%BF%E8%B0%88/">设计像WhatsApp这样的聊天应用程序-系统设计访谈</a>
+          </li>
+        
+          <li>
+            <a href="/2025/02/07/%E7%94%A8%E4%BB%A3%E7%A0%81%E8%A7%A3%E9%87%8A%E5%9F%BA%E6%9C%ACOOP%E6%A6%82%E5%BF%B5/">用代码解释基本OOP概念</a>
+          </li>
+        
+          <li>
+            <a href="/2025/02/07/%E4%B8%AD%E7%BE%8E%E5%A4%96%E4%BA%A4%E8%BE%9E%E4%BB%A4%E8%A7%A3%E8%AF%BB/">中美外交辞令解读</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2025 武仙北冕座长城<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
