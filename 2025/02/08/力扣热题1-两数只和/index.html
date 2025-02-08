@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>欢迎文章 | 武仙-北冕座长城的技术专栏</title>
-  <meta name="keywords" content=" 欢迎 ">
-  <meta name="description" content="欢迎文章 | 武仙-北冕座长城的技术专栏">
+  <title>力扣热题1-两数只和 | 武仙-北冕座长城的技术专栏</title>
+  <meta name="keywords" content=" 力扣 , 学习 , 练习 ">
+  <meta name="description" content="力扣热题1-两数只和 | 武仙-北冕座长城的技术专栏">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta property="og:type" content="website">
 <meta property="og:title" content="about">
@@ -370,9 +370,9 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="post-欢迎文章" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-力扣热题1-两数只和" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">欢迎文章</h1>
+        <h1 class="article-title">力扣热题1-两数只和</h1>
     
     <div class="article-meta">
         
@@ -382,7 +382,7 @@
             <i class="iconfont icon-category"></i>
             
             
-            <a  data-rel="欢迎">欢迎</a>
+            <a  data-rel="练习">练习</a>
             
         </span>
         
@@ -390,14 +390,18 @@
         <span class="tag">
             <i class="iconfont icon-tag"></i>
             
-            <a class="color3">欢迎</a>
+            <a class="color3">力扣</a>
+            
+            <a class="color3">学习</a>
+            
+            <a class="color3">练习</a>
             
         </span>
         
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2025-02-07 16:56:03'>2025-02-07 16:47</time>
+            发布时间 : <time class="date" title='最后更新: 2025-02-08 14:00:27'>2025-02-08 13:23</time>
         
     </div>
     <div class="article-meta">
@@ -419,7 +423,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E6%96%87%E7%AB%A0%E6%90%AC%E8%BF%90%E8%AF%B4%E6%98%8E"><span class="toc-text">一、文章搬运说明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E5%85%8D%E8%B4%A3%E6%9D%A1%E6%AC%BE"><span class="toc-text">二、免责条款</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%97%AE%E9%A2%98%E5%88%86%E6%9E%90"><span class="toc-text">问题分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="toc-text">代码实现</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%B9%E6%B3%95%E4%B8%80%EF%BC%9A%E6%9A%B4%E5%8A%9B%E6%9E%9A%E4%B8%BE"><span class="toc-text">方法一：暴力枚举</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%B9%E6%B3%95%E4%BA%8C%EF%BC%9A%E5%93%88%E5%B8%8C%E8%A1%A8"><span class="toc-text">方法二：哈希表</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B%E5%8F%8A%E7%BB%93%E6%9E%9C"><span class="toc-text">测试用例及结果</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%8D%E6%9D%82%E5%BA%A6%E5%88%86%E6%9E%90"><span class="toc-text">复杂度分析</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -435,16 +439,88 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>亲爱的朋友们：</p>
-<p>欢迎来到 北冕长城！非常开心能在这里与大家分享各种有趣、有价值的内容。在开始愉快的阅读之旅前，有些重要的事情想和大家交代一下。</p>
-<h2 id="一、文章搬运说明"><a href="#一、文章搬运说明" class="headerlink" title="一、文章搬运说明"></a>一、文章搬运说明</h2><p>为了给大家带来更丰富多元的知识和见解，本博客会有部分文章进行搬运。这些搬运的文章均来自网络上优秀的创作者和平台，并且在每篇搬运文章中，我都会明确注明文章的原始出处和作者信息，以确保对原作者的尊重和版权的维护。</p>
-<p>搬运的目的纯粹是为了知识的传播和分享，希望能让更多朋友接触到这些精彩内容。如果原作者对文章的搬运存在任何疑问或要求，请随时通过 [博主联系方式，如邮箱、留言板链接等] 与我联系，我会立即按照您的要求进行处理，包括但不限于删除文章、补充更多版权信息等。</p>
-<h2 id="二、免责条款"><a href="#二、免责条款" class="headerlink" title="二、免责条款"></a>二、免责条款</h2><ol>
-<li><strong>内容准确性</strong>：虽然我在搬运和整理文章时，会尽最大努力确保内容的准确性和可靠性，但由于网络信息的多样性和复杂性，无法对所有文章的内容真实性、完整性和时效性做出绝对保证。文章中的观点仅代表原作者个人，不一定反映本博主的立场。如果您依据这些文章中的信息做出任何决策或行为，由此产生的一切后果需由您自行承担，本博客不承担任何责任。</li>
-<li><strong>版权问题</strong>：尽管我在搬运文章时遵循注明出处等原则，但仍有可能存在版权纠纷的风险。若因搬运文章引发任何版权相关的法律问题，一切责任和法律后果由原作者和文章来源平台承担，与本博客无关。</li>
-<li><strong>外部链接</strong>：本博客中可能会包含一些指向其他网站的外部链接，这些链接仅为方便读者获取更多信息而提供。我无法对这些外部网站的内容、隐私政策和安全性负责。当您点击这些链接时，您将离开本博客，进入其他网站，请注意阅读相关网站的使用条款和隐私政策。</li>
-</ol>
-<p>本博客致力于为大家营造一个良好的知识交流和分享环境，希望大家在这里能有所收获。如果您对博客的内容、规则等有任何意见或建议，欢迎随时与我交流。再次感谢大家的支持与关注！</p>
+        <p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/two-sum/">1. 两数之和</a></p>
+<p>给定一个整数数组 <code>nums</code> 和一个整数目标值 <code>target</code>，请你在该数组中找出 <strong>和为目标值</strong> <em><code>target</code></em> 的那 <strong>两个</strong> 整数，并返回它们的数组下标。</p>
+<p>你可以假设每种输入只会对应一个答案，并且你不能使用两次相同的元素。</p>
+<p>你可以按任意顺序返回答案。</p>
+<p><strong>示例 1：</strong></p>
+<pre><code class="language-python">输入：nums = [2,7,11,15], target = 9
+输出：[0,1]
+解释：因为 nums[0] + nums[1] == 9 ，返回 [0, 1] 。
+</code></pre>
+<p><strong>示例 2：</strong></p>
+<pre><code class="language-python">输入：nums = [3,2,4], target = 6
+输出：[1,2]
+</code></pre>
+<p><strong>示例 3：</strong></p>
+<pre><code class="language-python">输入：nums = [3,3], target = 6
+输出：[0,1]
+</code></pre>
+<p><strong>提示：</strong></p>
+<ul>
+<li><code>2 &lt;= nums.length &lt;= 104</code></li>
+<li><code>-109 &lt;= nums[i] &lt;= 109</code></li>
+<li><code>-109 &lt;= target &lt;= 109</code></li>
+<li><strong>只会存在一个有效答案</strong></li>
+</ul>
+<p>**进阶：**你可以想出一个时间复杂度小于 <code>O(n2)</code> 的算法吗？</p>
+<h3 id="问题分析"><a href="#问题分析" class="headerlink" title="问题分析"></a>问题分析</h3><p>这是一个经典的两数之和问题，目标是在给定的整数数组 <code>nums</code> 中找出两个数，使它们的和等于目标值 <code>target</code>，并返回这两个数的数组下标。要求每种输入只有一个答案，且不能使用同一个元素两次，可按任意顺序返回结果。</p>
+<h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><h4 id="方法一：暴力枚举"><a href="#方法一：暴力枚举" class="headerlink" title="方法一：暴力枚举"></a>方法一：暴力枚举</h4><p>暴力枚举是最直观的方法，通过两层循环遍历数组中的每一对元素，检查它们的和是否等于目标值。</p>
+<pre><code class="language-python">def twoSum(nums, target):
+    n = len(nums)
+    for i in range(n):
+        for j in range(i + 1, n):
+            if nums[i] + nums[j] == target:
+                return [i, j]
+    return []
+</code></pre>
+<h4 id="方法二：哈希表"><a href="#方法二：哈希表" class="headerlink" title="方法二：哈希表"></a>方法二：哈希表</h4><p>为了降低时间复杂度，可以使用哈希表来存储已经遍历过的元素及其下标。在遍历数组时，对于每个元素 <code>nums[i]</code>，检查 <code>target - nums[i]</code> 是否已经在哈希表中，如果存在，则找到了两个数的和等于目标值，返回它们的下标；否则，将当前元素及其下标存入哈希表。</p>
+<pre><code class="language-python">def twoSum(nums, target):
+    hashmap = &#123;&#125;
+    for i, num in enumerate(nums):
+        complement = target - num
+        if complement in hashmap:
+            return [hashmap[complement], i]
+        hashmap[num] = i
+    return []
+</code></pre>
+<h3 id="测试用例及结果"><a href="#测试用例及结果" class="headerlink" title="测试用例及结果"></a>测试用例及结果</h3><pre><code class="language-python"># 测试用例
+test_cases = [
+    ([2, 7, 11, 15], 9),
+    ([3, 2, 4], 6),
+    ([3, 3], 6)
+]
+
+# 预期输出
+expected_outputs = [
+    [0, 1],
+    [1, 2],
+    [0, 1]
+]
+
+# 测试函数
+for i, (nums, target) in enumerate(test_cases):
+    result = twoSum(nums, target)
+    if result == expected_outputs[i]:
+        print(f&quot;测试用例 &#123;i + 1&#125; 通过，输入: nums = &#123;nums&#125;, target = &#123;target&#125;, 输出: &#123;result&#125;&quot;)
+    else:
+        print(f&quot;测试用例 &#123;i + 1&#125; 失败，输入: nums = &#123;nums&#125;, target = &#123;target&#125;, 输出: &#123;result&#125;, 预期输出: &#123;expected_outputs[i]&#125;&quot;)
+</code></pre>
+<h3 id="复杂度分析"><a href="#复杂度分析" class="headerlink" title="复杂度分析"></a>复杂度分析</h3><ul>
+<li><p><strong>暴力枚举</strong>：</p>
+<ul>
+<li>时间复杂度：$O(n^2)$，其中 $n$ 是数组的长度。需要使用两层嵌套循环遍历数组。</li>
+<li>空间复杂度：$O(1)$，只使用了常数级的额外空间。</li>
+</ul>
+</li>
+<li><p><strong>哈希表</strong>：</p>
+<ul>
+<li>时间复杂度：$O(n)$，其中 $n$ 是数组的长度。只需要遍历数组一次，每次查找哈希表的时间复杂度为 $O(1)$。</li>
+<li>空间复杂度：$O(n)$，主要用于存储哈希表，最坏情况下需要存储数组中的所有元素。</li>
+</ul>
+</li>
+</ul>
+<p>通过哈希表的方法，时间复杂度从 $O(n^2)$ 降低到了 $O(n)$，提高了算法的效率。</p>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 545227863@qq.com </span>
@@ -461,6 +537,46 @@
 
 
 
+    
+        <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": {
+        preferredFont: "TeX",
+        availableFonts: ["STIX","TeX"],
+        linebreaks: { automatic:true },
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ],
+        processEscapes: true,
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } },
+        Macros: { href: "{}" }
+    },
+    messageStyle: "none"
+    });
+</script>
+<!-- 给MathJax元素添加has-jax class -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<!-- 通过连接CDN加载MathJax的js代码 -->
+<script type="text/javascript" async
+        src="//cdn.jsdelivr.net/npm/mathjax@2.7.8/unpacked/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+<input type="hidden" id="MathJax-js"
+        value="//cdn.jsdelivr.net/npm/mathjax@2.7.8/unpacked/MathJax.js?config=TeX-MML-AM_CHTML">
+</input>
     
 
 

@@ -151,7 +151,7 @@
     <li>
         <div class="all active" data-rel="全部文章">全部文章
             
-                <small>(5)</small>
+                <small>(6)</small>
             
         </div>
     </li>
@@ -163,6 +163,21 @@
         <div data-rel="欢迎">
             
             欢迎
+            <small>(1)</small>
+        </div>
+        
+    </li>
+
+            
+        
+    
+        
+            
+                
+    <li>
+        <div data-rel="练习">
+            
+            练习
             <small>(1)</small>
         </div>
         
@@ -206,7 +221,7 @@
         
     </div>
 </div>
-<input type="hidden" id="yelog_site_posts_number" value="5">
+<input type="hidden" id="yelog_site_posts_number" value="6">
 
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
@@ -261,7 +276,19 @@
             </li>
         
             <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>力扣</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>练习</a>
+            </li>
+        
+            <li class="article-tag-list-item">
                 <i class="iconfont icon-tag"></i><a>收集</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>学习</a>
             </li>
         
     </div>
@@ -270,6 +297,15 @@
 
     
     <nav id="title-list-nav">
+        
+        
+        <a  class="全部文章 练习 "
+           href="/2025/02/08/%E5%8A%9B%E6%89%A3%E7%83%AD%E9%A2%981-%E4%B8%A4%E6%95%B0%E5%8F%AA%E5%92%8C/"
+           data-tag="力扣,学习,练习"
+           data-author="" >
+            <span class="post-title" title="力扣热题1-两数只和">力扣热题1-两数只和</span>
+            <span class="post-date" title="2025-02-08 13:23:11">2025/02/08</span>
+        </a>
         
         
         <a  class="全部文章 欢迎 "
@@ -428,11 +464,17 @@
 <p>API通常会在处理输入之前<strong>验证输入以确保其正确无误，这有助于保持准确性和安全性</strong>。 </p>
 <p>正如API需要<strong>特定的输入一样</strong>，它们也会返回<strong>结构良好的输出</strong>。</p>
 <p>例如，<strong>谷歌地图API</strong>始终<strong>以相同的格式返回坐标</strong>。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;latitude&quot;: 40.6892,</span><br><span class="line">  &quot;longitude&quot;: -74.0445</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+<pre><code class="language-Plaintext">&#123;
+  &quot;latitude&quot;: 40.6892,
+  &quot;longitude&quot;: -74.0445
+&#125;
+</code></pre>
 <p>如果 API 找不到该位置，它会提供错误响应并解释原因。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;error&quot;: &quot;Invalid address format&quot;,</span><br><span class="line">  &quot;code&quot;: 400</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+<pre><code class="language-Plaintext">&#123;
+  &quot;error&quot;: &quot;Invalid address format&quot;,
+  &quot;code&quot;: 400
+&#125;
+</code></pre>
 <p>您每天使用的应用程序（无论是<strong>Gmail、Instagram、Uber还是Spotify</strong>）本质上<strong>都是API的集合，顶部带有精致的用户界面（UI）</strong>。</p>
 <p>大多数应用程序遵循 <strong>前端&#x2F;后端架构</strong> ，其中：</p>
 <ul>
@@ -470,40 +512,83 @@
 <p>这些 API 并不连接不同的应用程序；而是在编程语言或框架内提供预定义的函数，以简化开发。</p>
 <p>**示例：**Python的内置列表API</p>
 <p>处理列表时，Python提供了一组<strong>内置函数（方法）来操作数据</strong>。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">numbers = [5, 3, 8, 1, 4]</span><br><span class="line">numbers.sort()  # API call to sort the list</span><br><span class="line"></span><br><span class="line">fruits = [&quot;apple&quot;, &quot;banana&quot;]</span><br><span class="line">fruits.append(&quot;orange&quot;)  # API call to add an element</span><br><span class="line"></span><br><span class="line">fruits.pop()  # API call to remove the last element</span><br></pre></td></tr></table></figure>
+<pre><code class="language-Plaintext">numbers = [5, 3, 8, 1, 4]
+numbers.sort()  # API call to sort the list
 
+fruits = [&quot;apple&quot;, &quot;banana&quot;]
+fruits.append(&quot;orange&quot;)  # API call to add an element
+
+fruits.pop()  # API call to remove the last element
+</code></pre>
 <p> <code>sort（）</code>开发人员可以使用Python中的或而不必从头编写排序算法<code>sorted（）</code>。</p>
 <p>代码API不仅限于内置的编程语言函数.以AI&#x2F;ML库**TensorFlow为例.它提供了一个高级API，**用于训练机器学习模型，而无需从头开始实现复杂的数学运算。 </p>
 <p>例如，使用TensorFlow的API创建<strong>神经网络</strong>非常简单：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">import tensorflow as tf</span><br><span class="line">model = tf.keras.Sequential([tf.keras.layers.Dense(64, activation=&quot;relu&quot;)])</span><br></pre></td></tr></table></figure>
-
+<pre><code class="language-Plaintext">import tensorflow as tf
+model = tf.keras.Sequential([tf.keras.layers.Dense(64, activation=&quot;relu&quot;)])
+</code></pre>
 <p>编程 API 抽象了复杂性，以便开发人员可以专注于构建解决方案，而不是重新发明轮子。</p>
 <p>API使用不同的<strong>协议和架构进行通信</strong>，这些协议和架构定义了如何发送请求，如何格式化响应以及如何在系统之间交换数据。</p>
 <p>REST是目前使用最广泛的API通信方法，它<strong>轻量、无状态、可扩展</strong>，非常适合Web服务和移动应用程序。</p>
 <p>RESTAPI遵循一组设计原则并使用<strong>HTTP方法</strong>（GET， POST，PUT，DELETE）执行操作。</p>
 <p>RESTAPI基于<strong>资源，每个资源都通过URL（端点）<strong>访问。API遵循</strong>客户端-服务器模型</strong>，这意味着客户端发送请求，服务器处理该请求并发送响应。   </p>
 <p><strong>检索书籍列表（GET 请求）：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GET https://api.bookstore.com/books</span><br></pre></td></tr></table></figure>
-
+<pre><code class="language-Plaintext">GET https://api.bookstore.com/books
+</code></pre>
 <p><strong>响应（JSON）：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[</span><br><span class="line">  &#123; &quot;id&quot;: 1, &quot;title&quot;: &quot;Clean Code&quot;, &quot;author&quot;: &quot;Robert C. Martin&quot; &#125;,</span><br><span class="line">  &#123; &quot;id&quot;: 2, &quot;title&quot;: &quot;The Pragmatic Programmer&quot;, &quot;author&quot;: &quot;Andrew Hunt&quot; &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
-
+<pre><code class="language-Plaintext">[
+  &#123; &quot;id&quot;: 1, &quot;title&quot;: &quot;Clean Code&quot;, &quot;author&quot;: &quot;Robert C. Martin&quot; &#125;,
+  &#123; &quot;id&quot;: 2, &quot;title&quot;: &quot;The Pragmatic Programmer&quot;, &quot;author&quot;: &quot;Andrew Hunt&quot; &#125;
+]
+</code></pre>
 <p>SOAP是一种较旧的API通信方法，<strong>依赖于基于XML的消息传递</strong>。</p>
 <p>与轻量级的REST不同，SOAP更加结构化且更安全，非常适合银行、医疗保健和企业应用程序。</p>
 <p> <strong>SOAP消息使用XML格式</strong>发送，需要<strong>WSDL（Web服务描述语言）文件</strong>，该文件定义了API的可用功能和请求结构。</p>
 <p><strong>请求：</strong> 获取账户余额</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;soapenv:Envelope xmlns:soapenv=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot; xmlns:bank=&quot;http://bank.example.com/&quot;&gt;</span><br><span class="line">   &lt;soapenv:Header/&gt;</span><br><span class="line">   &lt;soapenv:Body&gt;</span><br><span class="line">      &lt;bank:GetAccountBalance&gt;</span><br><span class="line">         &lt;bank:accountNumber&gt;123456&lt;/bank:accountNumber&gt;</span><br><span class="line">      &lt;/bank:GetAccountBalance&gt;</span><br><span class="line">   &lt;/soapenv:Body&gt;</span><br><span class="line">&lt;/soapenv:Envelope&gt;</span><br></pre></td></tr></table></figure>
-
+<pre><code class="language-Plaintext">&lt;soapenv:Envelope xmlns:soapenv=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot; xmlns:bank=&quot;http://bank.example.com/&quot;&gt;
+   &lt;soapenv:Header/&gt;
+   &lt;soapenv:Body&gt;
+      &lt;bank:GetAccountBalance&gt;
+         &lt;bank:accountNumber&gt;123456&lt;/bank:accountNumber&gt;
+      &lt;/bank:GetAccountBalance&gt;
+   &lt;/soapenv:Body&gt;
+&lt;/soapenv:Envelope&gt;
+</code></pre>
 <p><strong>回复：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;soapenv:Envelope xmlns:soapenv=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;&gt;</span><br><span class="line">   &lt;soapenv:Body&gt;</span><br><span class="line">      &lt;bank:GetAccountBalanceResponse&gt;</span><br><span class="line">         &lt;bank:balance&gt;5000.00&lt;/bank:balance&gt;</span><br><span class="line">      &lt;/bank:GetAccountBalanceResponse&gt;</span><br><span class="line">   &lt;/soapenv:Body&gt;</span><br><span class="line">&lt;/soapenv:Envelope&gt;</span><br></pre></td></tr></table></figure>
-
+<pre><code class="language-Plaintext">&lt;soapenv:Envelope xmlns:soapenv=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;&gt;
+   &lt;soapenv:Body&gt;
+      &lt;bank:GetAccountBalanceResponse&gt;
+         &lt;bank:balance&gt;5000.00&lt;/bank:balance&gt;
+      &lt;/bank:GetAccountBalanceResponse&gt;
+   &lt;/soapenv:Body&gt;
+&lt;/soapenv:Envelope&gt;
+</code></pre>
 <p>GraphQL是REST的替代方案，它<strong>允许客户端精确请求所需的数据</strong>，从而使其对现代应用程序来说更加高效，与需要多次API调用才能获取相关数据的REST不同，GraphQL可以<strong>在单个请求中获取所有必要的数据</strong>。</p>
 <p>GraphQL没有预定义端点，而是公开单个<strong>API端点</strong>，客户端发送查询来请求特定字段。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  user(id: 123) &#123;</span><br><span class="line">    name</span><br><span class="line">    email</span><br><span class="line">    posts &#123;</span><br><span class="line">      title</span><br><span class="line">      likes</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+<pre><code class="language-Plaintext">&#123;
+  user(id: 123) &#123;
+    name
+    email
+    posts &#123;
+      title
+      likes
+    &#125;
+  &#125;
+&#125;
+</code></pre>
 <p>回复：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;data&quot;: &#123;</span><br><span class="line">    &quot;user&quot;: &#123;</span><br><span class="line">      &quot;name&quot;: &quot;Alice&quot;,</span><br><span class="line">      &quot;email&quot;: &quot;alice@example.com&quot;,</span><br><span class="line">      &quot;posts&quot;: [</span><br><span class="line">        &#123; &quot;title&quot;: &quot;Hello World&quot;, &quot;likes&quot;: 100 &#125;,</span><br><span class="line">        &#123; &quot;title&quot;: &quot;GraphQL is Amazing!&quot;, &quot;likes&quot;: 200 &#125;</span><br><span class="line">      ]</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+<pre><code class="language-Plaintext">&#123;
+  &quot;data&quot;: &#123;
+    &quot;user&quot;: &#123;
+      &quot;name&quot;: &quot;Alice&quot;,
+      &quot;email&quot;: &quot;alice@example.com&quot;,
+      &quot;posts&quot;: [
+        &#123; &quot;title&quot;: &quot;Hello World&quot;, &quot;likes&quot;: 100 &#125;,
+        &#123; &quot;title&quot;: &quot;GraphQL is Amazing!&quot;, &quot;likes&quot;: 200 &#125;
+      ]
+    &#125;
+  &#125;
+&#125;
+</code></pre>
 <p>gRPC（谷歌远程过程调用）是一种<strong>高性能API通信方式</strong>，它使用**协议缓冲区（Protobuf）**代替JSON或XML，从而更快，更高效。</p>
 <p>gRPC使用<strong>二进制数据格式</strong>而不是基于文本的格式，从而减少了有效负载大小，并且支持<strong>双向流</strong>，这意味着客户端和服务器可以同时发送数据。</p>
 <p>使用API乍一看可能很复杂，但它遵循简单的<strong>请求-响应</strong>模式。</p>
@@ -526,8 +611,8 @@
 <p>*<em>示例：</em>***<a target="_blank" rel="noopener" href="https://openweathermap.org/api/one-call-3">OpenWeatherMap</a>**API</p>
 <p>OpenWeatherMap API 允许用户获取实时天气数据。以下是其主要组件的细分：</p>
 <p><strong>API 网址</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://api.openweathermap.org/data/3.0/weather?q=city_name&amp;appid=YOUR_API_KEY</span><br></pre></td></tr></table></figure>
-
+<pre><code class="language-Plaintext">https://api.openweathermap.org/data/3.0/weather?q=city_name&amp;appid=YOUR_API_KEY
+</code></pre>
 <p><strong>必需参数：</strong></p>
 <ul>
 <li><code>Q</code>：城市名称（例如<code>伦敦</code>）</li>
@@ -546,8 +631,8 @@
 <li>转到<strong>API密钥</strong>。</li>
 <li>在请求中使用 API 密钥：</li>
 </ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GET https://api.openweathermap.org/data/2.5/weather?q=London&amp;appid=YOUR_API_KEY</span><br></pre></td></tr></table></figure>
-
+<pre><code class="language-Plaintext">GET https://api.openweathermap.org/data/2.5/weather?q=London&amp;appid=YOUR_API_KEY
+</code></pre>
 <p>在编写代码之前，<strong>先测试API</strong>以查看其响应情况。</p>
 <ul>
 <li>下载并安装**<a target="_blank" rel="noopener" href="https://www.postman.com/">Postman</a>**。</li>
@@ -556,11 +641,20 @@
 <li>单击**”发送”并查看JSON格式**的响应。</li>
 </ul>
 <p>您还可以使用cURL直接<strong>从命令行</strong>测试**<a target="_blank" rel="noopener" href="https://curl.se/">API</a>**。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -X GET &quot;https://api.openweathermap.org/data/3.0/weather?q=New+York&amp;appid=YOUR_API_KEY&quot;</span><br></pre></td></tr></table></figure>
-
+<pre><code class="language-Plaintext">curl -X GET &quot;https://api.openweathermap.org/data/3.0/weather?q=New+York&amp;appid=YOUR_API_KEY&quot;
+</code></pre>
 <p>现在您已经测试了API，是时候将<strong>其集成到您的应用程序中了</strong>。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">import requests</span><br><span class="line"></span><br><span class="line">url = &quot;https://api.openweathermap.org/data/3.0/weather?q=New York&amp;appid=YOUR_API_KEY&quot;</span><br><span class="line">response = requests.get(url)</span><br><span class="line"></span><br><span class="line">if response.status_code == 200:</span><br><span class="line">    data = response.json()</span><br><span class="line">    print(f&quot;Temperature: &#123;data[&#x27;main&#x27;][&#x27;temp&#x27;]&#125;°C&quot;)</span><br><span class="line">else:</span><br><span class="line">    print(&quot;Error:&quot;, response.status_code)</span><br></pre></td></tr></table></figure>
+<pre><code class="language-Plaintext">import requests
 
+url = &quot;https://api.openweathermap.org/data/3.0/weather?q=New York&amp;appid=YOUR_API_KEY&quot;
+response = requests.get(url)
+
+if response.status_code == 200:
+    data = response.json()
+    print(f&quot;Temperature: &#123;data[&#39;main&#39;][&#39;temp&#39;]&#125;°C&quot;)
+else:
+    print(&quot;Error:&quot;, response.status_code)
+</code></pre>
 <ul>
 <li><code>request. get（url）</code>-发送API请求。</li>
 <li><code>response.json()</code> – 将响应转换为 JSON。</li>
@@ -572,8 +666,16 @@
 <li><strong>身份验证错误</strong>（例如，API密钥过期）。</li>
 <li><strong>速率限制</strong> （例如超出请求限制）。</li>
 </ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">if response.status_code == 200:</span><br><span class="line">    data = response.json()</span><br><span class="line">    print(f&quot;Weather: &#123;data[&#x27;weather&#x27;][0][&#x27;description&#x27;]&#125;&quot;)</span><br><span class="line">elif response.status_code == 401:</span><br><span class="line">    print(&quot;Error: Invalid API key&quot;)</span><br><span class="line">elif response.status_code == 404:</span><br><span class="line">    print(&quot;Error: City not found&quot;)</span><br><span class="line">else:</span><br><span class="line">    print(f&quot;Unexpected error: &#123;response.status_code&#125;&quot;)</span><br></pre></td></tr></table></figure>
-
+<pre><code class="language-Plaintext">if response.status_code == 200:
+    data = response.json()
+    print(f&quot;Weather: &#123;data[&#39;weather&#39;][0][&#39;description&#39;]&#125;&quot;)
+elif response.status_code == 401:
+    print(&quot;Error: Invalid API key&quot;)
+elif response.status_code == 404:
+    print(&quot;Error: City not found&quot;)
+else:
+    print(f&quot;Unexpected error: &#123;response.status_code&#125;&quot;)
+</code></pre>
 <p>一旦从API获取数据，就可以<strong>在网络或移动应用程序中动态显示它</strong>。</p>
 <p>**示例：**您可以使用OpenWeatherMapAPI构建天气仪表板。</p>
 <ul>
