@@ -428,7 +428,7 @@
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2025-02-08 16:46:23'>2025-02-08 15:44</time>
+            发布时间 : <time class="date" title='最后更新: 2025-02-08 17:12:33'>2025-02-08 15:44</time>
         
     </div>
     <div class="article-meta">
@@ -450,7 +450,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0%E6%80%9D%E8%B7%AF"><span class="toc-text">实现思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="toc-text">代码实现</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%8D%E6%9D%82%E5%BA%A6%E5%88%86%E6%9E%90"><span class="toc-text">复杂度分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%9B%E9%98%B6%E4%BC%98%E5%8C%96"><span class="toc-text">进阶优化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98%EF%BC%9A%E5%AE%9E%E4%BE%8B%E5%8C%96"><span class="toc-text">遇到的问题：实例化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E9%87%8A"><span class="toc-text">解释</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1%E3%80%81%E9%97%AE%E9%A2%98%E6%8F%8F%E8%BF%B0"><span class="toc-text">1、问题描述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2%E3%80%81%E5%AE%9E%E7%8E%B0%E6%80%9D%E8%B7%AF"><span class="toc-text">2、实现思路</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="toc-text">代码实现</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%8D%E6%9D%82%E5%BA%A6%E5%88%86%E6%9E%90"><span class="toc-text">复杂度分析</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3%E3%80%81%E8%BF%9B%E9%98%B6%E4%BC%98%E5%8C%96"><span class="toc-text">3、进阶优化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4%E3%80%81%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98%EF%BC%9A%E5%AE%9E%E4%BE%8B%E5%8C%96"><span class="toc-text">4、遇到的问题：实例化</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E9%87%8A"><span class="toc-text">解释</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5%E3%80%81%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98%EF%BC%9A%E7%BC%A9%E8%BF%9B"><span class="toc-text">5、遇到的问题：缩进</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0%E7%BC%A9%E8%BF%9B"><span class="toc-text">添加缩进</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E7%BC%A9%E8%BF%9B"><span class="toc-text">删除缩进</span></a></li></ol></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -467,7 +467,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/move-zeroes/">283. 移动零</a></p>
-<p>给定一个数组 <code>nums</code>，编写一个函数将所有 <code>0</code> 移动到数组的末尾，同时保持非零元素的相对顺序。</p>
+<h2 id="1、问题描述"><a href="#1、问题描述" class="headerlink" title="1、问题描述"></a>1、问题描述</h2><p>给定一个数组 <code>nums</code>，编写一个函数将所有 <code>0</code> 移动到数组的末尾，同时保持非零元素的相对顺序。</p>
 <p><strong>请注意</strong> ，必须在不复制数组的情况下原地对数组进行操作。</p>
 <p><strong>示例 1:</strong></p>
 <pre><code>输入: nums = [0,1,0,3,12]
@@ -484,7 +484,7 @@
 </ul>
 <p>**进阶：**你能尽量减少完成的操作次数吗？</p>
 <p>要将数组中的所有 0 移动到数组末尾，同时保持非零元素的相对顺序，并且在不复制数组的情况下原地操作，可以使用双指针的方法。以下是具体的实现思路和代码：</p>
-<h3 id="实现思路"><a href="#实现思路" class="headerlink" title="实现思路"></a>实现思路</h3><p>使用两个指针，一个快指针 <code>fast</code> 用于遍历数组中的每个元素，另一个慢指针 <code>slow</code> 用于记录非零元素应该存放的位置。当快指针遇到非零元素时，将该元素放到慢指针所指的位置，然后慢指针向后移动一位。当快指针遍历完整个数组后，将慢指针之后的所有位置都置为 0。</p>
+<h2 id="2、实现思路"><a href="#2、实现思路" class="headerlink" title="2、实现思路"></a>2、实现思路</h2><p>使用两个指针，一个快指针 <code>fast</code> 用于遍历数组中的每个元素，另一个慢指针 <code>slow</code> 用于记录非零元素应该存放的位置。当快指针遇到非零元素时，将该元素放到慢指针所指的位置，然后慢指针向后移动一位。当快指针遍历完整个数组后，将慢指针之后的所有位置都置为 0。</p>
 <h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><pre><code class="language-python">def moveZeroes(nums):
     slow = 0
     # 遍历数组
@@ -511,7 +511,7 @@ print(moveZeroes(nums2))  # 输出: [0]
 <li><strong>时间复杂度</strong>：$O(n)$，其中 $n$ 是数组的长度。代码中主要有两次遍历数组的操作，每次遍历的时间复杂度都是 $O(n)$，因此总的时间复杂度为 $O(n)$。</li>
 <li><strong>空间复杂度</strong>：$O(1)$，只使用了常数级的额外空间，没有复制数组，满足原地操作的要求。</li>
 </ul>
-<h3 id="进阶优化"><a href="#进阶优化" class="headerlink" title="进阶优化"></a>进阶优化</h3><p>可以进一步优化代码，在将非零元素放到慢指针位置的同时，将原来的位置置为 0，这样可以减少最后将慢指针之后的位置置为 0 的操作，代码如下：</p>
+<h2 id="3、进阶优化"><a href="#3、进阶优化" class="headerlink" title="3、进阶优化"></a>3、进阶优化</h2><p>可以进一步优化代码，在将非零元素放到慢指针位置的同时，将原来的位置置为 0，这样可以减少最后将慢指针之后的位置置为 0 的操作，代码如下：</p>
 <pre><code class="language-python">def moveZeroes(nums):
     slow = 0
     for fast in range(len(nums)):
@@ -529,7 +529,7 @@ nums2 = [0]
 print(moveZeroes(nums2))  # 输出: [0]
 </code></pre>
 <p>这种优化后的方法同样是 $O(n)$ 的时间复杂度和 $O(1)$ 的空间复杂度，但操作次数相对减少。 </p>
-<h3 id="遇到的问题：实例化"><a href="#遇到的问题：实例化" class="headerlink" title="遇到的问题：实例化"></a>遇到的问题：实例化</h3><img src="/2025/02/08/%E5%8A%9B%E6%89%A3%E7%83%AD%E9%A2%98283-%E9%9B%B6%E7%A7%BB%E5%8A%A8/image-20250208162354551.png" class="">
+<h2 id="4、遇到的问题：实例化"><a href="#4、遇到的问题：实例化" class="headerlink" title="4、遇到的问题：实例化"></a>4、遇到的问题：实例化</h2><img src="/2025/02/08/%E5%8A%9B%E6%89%A3%E7%83%AD%E9%A2%98283-%E9%9B%B6%E7%A7%BB%E5%8A%A8/image-20250208162354551.png" class="">
 
 
 <p>你的报错原因是对类方法的调用方式存在混淆。当你定义的是普通实例方法时，必须先实例化类，然后通过实例去调用方法，而不能直接用类名去调用。</p>
@@ -556,6 +556,53 @@ print(s.moveZeroes(nums2))
 <li><strong>类的实例化</strong>：<code>s = Solution()</code> 这一步创建了 <code>Solution</code> 类的一个实例 <code>s</code> 。</li>
 <li><strong>方法调用</strong>：通过实例 <code>s</code> 去调用 <code>moveZeroes</code> 方法，即 <code>s.moveZeroes(nums1)</code> 和 <code>s.moveZeroes(nums2)</code> ，这样就满足了实例方法的调用要求，不会再报缺少参数的错误了。 因为实例方法的第一个参数 <code>self</code> 会自动指向实例本身，在调用时不需要显式传入。</li>
 </ol>
+<h2 id="5、遇到的问题：缩进"><a href="#5、遇到的问题：缩进" class="headerlink" title="5、遇到的问题：缩进"></a>5、遇到的问题：缩进</h2><p>在Python中，缩进是非常严格且重要的语法规则，用于标识代码块。以下是添加和删除缩进的具体说明：</p>
+<h3 id="添加缩进"><a href="#添加缩进" class="headerlink" title="添加缩进"></a>添加缩进</h3><ol>
+<li><strong>使用空格</strong>：Python中推荐使用4个空格作为一个缩进层级。当你需要将某行代码置于一个代码块内（比如<code>for</code>循环、<code>if</code>条件判断、函数定义、类定义等代码块）时，将光标定位到该行代码的行首，按下4次空格键。<br>例如，对于以下代码：</li>
+</ol>
+<pre><code class="language-python">for i in range(5):
+    print(i)
+</code></pre>
+<p>这里<code>print(i)</code>这行代码是<code>for</code>循环的代码块内容，通过在行首添加4个空格实现了缩进。</p>
+<ol start="2">
+<li><strong>使用制表符（不推荐，但也可行）</strong>：按下键盘上的<code>Tab</code>键可以插入一个制表符。但由于不同编辑器对制表符的宽度设置可能不同，容易导致在不同环境下缩进看起来不一致，从而引发语法错误，所以一般推荐使用空格。</li>
+</ol>
+<h3 id="删除缩进"><a href="#删除缩进" class="headerlink" title="删除缩进"></a>删除缩进</h3><ol>
+<li><strong>删除空格</strong>：如果是使用空格进行缩进的，将光标定位到需要删除缩进的行首，按下<code>Backspace</code>键，每次按下删除一个字符，直到删除掉相应数量的空格，使该行代码达到期望的缩进层级。<br>例如，有如下代码：</li>
+</ol>
+<pre><code class="language-python">for i in range(5):
+    print(i)
+    print(&quot;Hello&quot;)
+</code></pre>
+<p>如果要将<code>print(&quot;Hello&quot;)</code>这行代码从<code>for</code>循环的代码块中移除，就需要将行首的4个空格删除。</p>
+<ol start="2">
+<li><strong>删除制表符</strong>：如果是使用制表符进行缩进的，同样将光标定位到行首，按下<code>Backspace</code>键，每次按下删除一个制表符，直到达到合适的缩进层级。</li>
+</ol>
+<p>回到你的代码问题，假设你原始代码是这样（有缩进错误）：</p>
+<pre><code class="language-python">class Solution(object):
+    def moveZeroes(self, nums):
+    slow = 0
+    for fast in range(len(nums)):
+        if nums[fast] != 0:
+            nums[slow] = nums[fast]
+            slow += 1
+    for i in range(slow, len(nums)):
+        nums[i] = 0
+    return nums
+</code></pre>
+<p>正确的修改方式是确保每个代码块的缩进正确，修改后如下：</p>
+<pre><code class="language-python">class Solution(object):
+    def moveZeroes(self, nums):
+        slow = 0
+        for fast in range(len(nums)):
+            if nums[fast] != 0:
+                nums[slow] = nums[fast]
+                slow += 1
+        for i in range(slow, len(nums)):
+            nums[i] = 0
+        return nums
+</code></pre>
+<p><code>slow = 0</code>、两个<code>for</code>循环以及它们内部的代码块都要有正确的缩进层级，其中<code>slow = 0</code>相对于类方法定义缩进一次（4个空格 ），<code>for</code>循环内部的代码相对于<code>for</code>循环本身又缩进一次。 </p>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 545227863@qq.com </span>
