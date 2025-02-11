@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>欢迎文章 | 武仙-北冕座长城的技术专栏</title>
-  <meta name="keywords" content=" 欢迎 ">
-  <meta name="description" content="欢迎文章 | 武仙-北冕座长城的技术专栏">
+  <title>力扣热题15-三数之和 | 武仙-北冕座长城的技术专栏</title>
+  <meta name="keywords" content=" 练习 , 力扣 , 学习 ">
+  <meta name="description" content="力扣热题15-三数之和 | 武仙-北冕座长城的技术专栏">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta property="og:type" content="website">
 <meta property="og:title" content="about">
@@ -424,9 +424,9 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="post-欢迎文章" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-力扣热题15-三数之和" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">欢迎文章</h1>
+        <h1 class="article-title">力扣热题15-三数之和</h1>
     
     <div class="article-meta">
         
@@ -436,7 +436,7 @@
             <i class="iconfont icon-category"></i>
             
             
-            <a  data-rel="欢迎">欢迎</a>
+            <a  data-rel="练习">练习</a>
             
         </span>
         
@@ -444,14 +444,18 @@
         <span class="tag">
             <i class="iconfont icon-tag"></i>
             
-            <a class="color3">欢迎</a>
+            <a class="color3">练习</a>
+            
+            <a class="color3">力扣</a>
+            
+            <a class="color3">学习</a>
             
         </span>
         
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2025-02-07 16:56:03'>2025-02-07 16:47</time>
+            发布时间 : <time class="date" title='最后更新: 2025-02-10 15:46:44'>2025-02-10 15:05</time>
         
     </div>
     <div class="article-meta">
@@ -473,7 +477,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E6%96%87%E7%AB%A0%E6%90%AC%E8%BF%90%E8%AF%B4%E6%98%8E"><span class="toc-text">一、文章搬运说明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E5%85%8D%E8%B4%A3%E6%9D%A1%E6%AC%BE"><span class="toc-text">二、免责条款</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%97%AE%E9%A2%98%E6%8F%8F%E8%BF%B0"><span class="toc-text">问题描述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF%E5%88%86%E6%9E%90"><span class="toc-text">思路分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="toc-text">代码实现</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%8D%E6%9D%82%E5%BA%A6%E5%88%86%E6%9E%90"><span class="toc-text">复杂度分析</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -489,16 +493,98 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>亲爱的朋友们：</p>
-<p>欢迎来到 北冕长城！非常开心能在这里与大家分享各种有趣、有价值的内容。在开始愉快的阅读之旅前，有些重要的事情想和大家交代一下。</p>
-<h2 id="一、文章搬运说明"><a href="#一、文章搬运说明" class="headerlink" title="一、文章搬运说明"></a>一、文章搬运说明</h2><p>为了给大家带来更丰富多元的知识和见解，本博客会有部分文章进行搬运。这些搬运的文章均来自网络上优秀的创作者和平台，并且在每篇搬运文章中，我都会明确注明文章的原始出处和作者信息，以确保对原作者的尊重和版权的维护。</p>
-<p>搬运的目的纯粹是为了知识的传播和分享，希望能让更多朋友接触到这些精彩内容。如果原作者对文章的搬运存在任何疑问或要求，请随时通过 [博主联系方式，如邮箱、留言板链接等] 与我联系，我会立即按照您的要求进行处理，包括但不限于删除文章、补充更多版权信息等。</p>
-<h2 id="二、免责条款"><a href="#二、免责条款" class="headerlink" title="二、免责条款"></a>二、免责条款</h2><ol>
-<li><strong>内容准确性</strong>：虽然我在搬运和整理文章时，会尽最大努力确保内容的准确性和可靠性，但由于网络信息的多样性和复杂性，无法对所有文章的内容真实性、完整性和时效性做出绝对保证。文章中的观点仅代表原作者个人，不一定反映本博主的立场。如果您依据这些文章中的信息做出任何决策或行为，由此产生的一切后果需由您自行承担，本博客不承担任何责任。</li>
-<li><strong>版权问题</strong>：尽管我在搬运文章时遵循注明出处等原则，但仍有可能存在版权纠纷的风险。若因搬运文章引发任何版权相关的法律问题，一切责任和法律后果由原作者和文章来源平台承担，与本博客无关。</li>
-<li><strong>外部链接</strong>：本博客中可能会包含一些指向其他网站的外部链接，这些链接仅为方便读者获取更多信息而提供。我无法对这些外部网站的内容、隐私政策和安全性负责。当您点击这些链接时，您将离开本博客，进入其他网站，请注意阅读相关网站的使用条款和隐私政策。</li>
+        <p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/3sum/">15. 三数之和</a></p>
+<h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><p>给你一个整数数组 <code>nums</code> ，判断是否存在三元组 <code>[nums[i], nums[j], nums[k]]</code> 满足 <code>i != j</code>、<code>i != k</code> 且 <code>j != k</code> ，同时还满足 <code>nums[i] + nums[j] + nums[k] == 0</code> 。请你返回所有和为 <code>0</code> 且不重复的三元组。</p>
+<p>**注意：**答案中不可以包含重复的三元组。</p>
+<p><strong>示例 1：</strong></p>
+<pre><code>输入：nums = [-1,0,1,2,-1,-4]
+输出：[[-1,-1,2],[-1,0,1]]
+解释：
+nums[0] + nums[1] + nums[2] = (-1) + 0 + 1 = 0 。
+nums[1] + nums[2] + nums[4] = 0 + 1 + (-1) = 0 。
+nums[0] + nums[3] + nums[4] = (-1) + 2 + (-1) = 0 。
+不同的三元组是 [-1,0,1] 和 [-1,-1,2] 。
+注意，输出的顺序和三元组的顺序并不重要。
+</code></pre>
+<p><strong>示例 2：</strong></p>
+<pre><code>输入：nums = [0,1,1]
+输出：[]
+解释：唯一可能的三元组和不为 0 。
+</code></pre>
+<p><strong>示例 3：</strong></p>
+<pre><code>输入：nums = [0,0,0]
+输出：[[0,0,0]]
+解释：唯一可能的三元组和为 0 。
+</code></pre>
+<p><strong>提示：</strong></p>
+<ul>
+<li><p><code>3 &lt;= nums.length &lt;= 3000</code></p>
+</li>
+<li><p><code>-105 &lt;= nums[i] &lt;= 105</code></p>
+</li>
+</ul>
+<p>为了找出整数数组中所有和为 0 且不重复的三元组，可以使用排序加双指针的方法。以下是具体的实现思路和代码：</p>
+<h3 id="思路分析"><a href="#思路分析" class="headerlink" title="思路分析"></a>思路分析</h3><ol>
+<li><strong>排序</strong>：首先对数组进行排序，排序的目的是方便后续使用双指针法，并且可以很容易地跳过重复元素。</li>
+<li><strong>遍历数组</strong>：固定一个元素 <code>nums[i]</code>，然后在其右侧使用双指针 <code>left</code> 和 <code>right</code> 来寻找满足 <code>nums[i] + nums[left] + nums[right] == 0</code> 的另外两个元素。</li>
+<li><strong>双指针移动</strong>：<ul>
+<li>如果三个数的和小于 0，说明需要增大和，将 <code>left</code> 指针右移。</li>
+<li>如果三个数的和大于 0，说明需要减小和，将 <code>right</code> 指针左移。</li>
+<li>如果三个数的和等于 0，将这三个数添加到结果列表中，并同时移动 <code>left</code> 和 <code>right</code> 指针，跳过重复元素。</li>
+</ul>
+</li>
+<li><strong>跳过重复元素</strong>：在遍历过程中，需要跳过重复的元素，避免结果中出现重复的三元组。</li>
 </ol>
-<p>本博客致力于为大家营造一个良好的知识交流和分享环境，希望大家在这里能有所收获。如果您对博客的内容、规则等有任何意见或建议，欢迎随时与我交流。再次感谢大家的支持与关注！</p>
+<h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><pre><code class="language-python">def threeSum(nums):
+    # 对数组进行排序
+    nums.sort()
+    result = []
+    n = len(nums)
+    # 遍历数组
+    for i in range(n):
+        # 如果当前元素大于 0，由于数组已经排序，后面的元素也都大于 0，不可能找到和为 0 的三元组
+        if nums[i] &gt; 0:
+            break
+        # 跳过重复元素
+        if i &gt; 0 and nums[i] == nums[i - 1]:
+            continue
+        # 初始化双指针
+        left, right = i + 1, n - 1
+        while left &lt; right:
+            total = nums[i] + nums[left] + nums[right]
+            if total &lt; 0:
+                # 和小于 0，左指针右移
+                left += 1
+            elif total &gt; 0:
+                # 和大于 0，右指针左移
+                right -= 1
+            else:
+                # 和等于 0，添加到结果列表
+                result.append([nums[i], nums[left], nums[right]])
+                # 跳过重复元素
+                while left &lt; right and nums[left] == nums[left + 1]:
+                    left += 1
+                while left &lt; right and nums[right] == nums[right - 1]:
+                    right -= 1
+                # 移动指针
+                left += 1
+                right -= 1
+    return result
+
+# 测试示例
+nums1 = [-1, 0, 1, 2, -1, -4]
+print(threeSum(nums1))  # 输出: [[-1, -1, 2], [-1, 0, 1]]
+
+nums2 = [0, 1, 1]
+print(threeSum(nums2))  # 输出: []
+
+nums3 = [0, 0, 0]
+print(threeSum(nums3))  # 输出: [[0, 0, 0]]
+</code></pre>
+<h3 id="复杂度分析"><a href="#复杂度分析" class="headerlink" title="复杂度分析"></a>复杂度分析</h3><ul>
+<li><strong>时间复杂度</strong>：排序的时间复杂度为 $O(n log n)$，双指针遍历的时间复杂度为 $O(n^2)$，因此总的时间复杂度为 $O(n^2)$。</li>
+<li><strong>空间复杂度</strong>：主要是排序所需的额外空间，为 $O(log n)$。</li>
+</ul>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 545227863@qq.com </span>
@@ -515,6 +601,46 @@
 
 
 
+    
+        <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": {
+        preferredFont: "TeX",
+        availableFonts: ["STIX","TeX"],
+        linebreaks: { automatic:true },
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ],
+        processEscapes: true,
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } },
+        Macros: { href: "{}" }
+    },
+    messageStyle: "none"
+    });
+</script>
+<!-- 给MathJax元素添加has-jax class -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<!-- 通过连接CDN加载MathJax的js代码 -->
+<script type="text/javascript" async
+        src="//cdn.jsdelivr.net/npm/mathjax@2.7.8/unpacked/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+<input type="hidden" id="MathJax-js"
+        value="//cdn.jsdelivr.net/npm/mathjax@2.7.8/unpacked/MathJax.js?config=TeX-MML-AM_CHTML">
+</input>
     
 
 
